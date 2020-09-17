@@ -1,6 +1,6 @@
 # News App
 
-App description
+Web application to find news articles. When the user goes to the front page they are presented with top news articles and search fields to find articles they are looking for. News articles are presented in individual cards and have the name of the author and quick description/snippet of the article. Each card also has a button the user can click to save the article to view later.
 
 
 ## Table of Contents

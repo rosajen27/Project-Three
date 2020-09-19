@@ -1,0 +1,31 @@
+/* Custom Stylesheet */
+/**
+ * Use this file to override Materialize files so you can update
+ * the core Materialize files in the future
+ *
+ * Made By MaterializeCSS.com
+ */
+
+ .sidebar {
+    padding-top: 20px;
+    
+  }
+  @import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+.searchTerm {
+  text-align: center;
+  width: 30%;
+  border: 3px solid #007bff;
+  padding: 0px;
+  height: 40px;
+  border-radius: 5px 5px 5px 5px;
+  outline: none;
+  color: #007bff;
+  
+}
+
+
+
+
+
+  

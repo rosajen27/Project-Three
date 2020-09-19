@@ -7,15 +7,52 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+    <link href="./style.css" type="text/css" rel="stylesheet"/>
     <title>News API</title>
 
   </head>
   <body>
+
+    <!--   NavBar   -->
+  <nav>
+
+
+
+
+    <div class="row">
+      <div class="col s6">
+    <div class="nav-wrapper container"><a id="logo-container" href="index.html" class="col s6 brand-logo left"><img src="News-API.png" width="200" height="auto"></a>
+      
+      <input type="text" class="searchTerm" placeholder="News Story Search">
+              
+    </div>
+    </div>
+  
+  </nav>
+
+
+    <div class="container">
+      <div class="row">
+      
     
-    <!-- Cards-->
-    <section class="container mt-5">
-      <h2>Top News Stories</h2>
+    
+      <div class="sidebar">
+       
+        <h4>Other News Stories</h4>
+        <hr>
+        <li><a class="waves-effect waves-light" href="https://www.google.com/" target="_blank">First Story</a></li>
+        <li><a class="waves-effect waves-light" href="#!" target="_blank">Second Story</a></li>
+        <li><a class="waves-effect waves-light" href="#!" target="_blank">Third Story</a></li>
+        <li><a class="waves-effect waves-light" href="#!" target="_blank">Fourth Story</a></li>
+
+    </div>
+  
+  
+<!-- Cards-->
+      <div class="col s12 m8 l9" div id="card container">
+      <h1 style="text-align:center">Top News Stories</h1>
         <hr>
         
          <div class="row row-cols-1 row-cols-md-3">
@@ -84,11 +121,12 @@
                 <a href="https://newsapi.org/" target="_blank" class="btn btn-primary m-2">Complete Story</a>
               </div>
             </div>
-            </div>
-        
+            
+          
+          </div>
       </section>
      
-
+    
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>

@@ -5,9 +5,10 @@ const app = express();
 //sets up defualt port
 const port = process.env.PORT || 5000;
 
+//Set up mongo connection here
 
-//Sets up routes for adding deleteing and retrieving articles 
 
+//Sets up routes for adding deleteing and retrieving articles
 //Add
 app.post("/api/article", (req, res) => {
     Article.create(req.body, (err, data) => {

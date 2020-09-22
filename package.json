@@ -19,6 +19,7 @@
   "homepage": "https://github.com/tkim30201/Project-Three#readme",
   "dependencies": {
     "express": "^4.17.1",
+    "mongodb": "^3.6.2"
     "mongoose": "^5.10.6"
   }
 }

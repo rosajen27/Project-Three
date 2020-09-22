@@ -8,10 +8,13 @@ const port = process.env.PORT || 5000;
 
 const connection_URL = 'mongodb+srv://admin:CryuhAngbwyEbs3t@cluster0.mbo1a.mongodb.net/News?retryWrites=true&w=majority';
 //Set up mongo connection here
-mongoose.connect(connection_URL, {
-  useCreateIndex: true,
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
+const MongoClient = require('mongodb').MongoClient;
+const uri = "mongodb+srv://admin:CryuhAngbwyEbs3t@cluster0.mbo1a.mongodb.net/News?retryWrites=true&w=majority";
+const client = new MongoClient(uri, { useNewUrlParser: true });
+client.connect(err => {
+  const collection = client.db("test").collection("devices");
+  // perform actions on the collection object
+  client.close();
 });
 
 //Sets up routes for adding deleteing and retrieving articles

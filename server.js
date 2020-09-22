@@ -1,10 +1,12 @@
 const express = require("express");
-
+const mongoose = require('mongoose')
 const app = express();
+const Article = require('./Article')
 
 //sets up defualt port
 const port = process.env.PORT || 5000;
 
+const connection_URL = 'mongodb+srv://admin:CryuhAngbwyEbs3t@cluster0.mbo1a.mongodb.net/News?retryWrites=true&w=majority';
 //Set up mongo connection here
 const MongoClient = require('mongodb').MongoClient;
 const uri = "mongodb+srv://admin:CryuhAngbwyEbs3t@cluster0.mbo1a.mongodb.net/News?retryWrites=true&w=majority";

@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import "./Header.css";
 import SearchIcon from "@material-ui/icons/Search";
 import { Avatar } from "@material-ui/core";
+import Sidebar from './Sidebar';
 
 class Header extends React.Component {
   constructor() {
@@ -20,7 +21,7 @@ class Header extends React.Component {
   render() {
     return (
       <div className="Header">
-          <h1>News</h1>
+          <Sidebar />
 
         <div className="Header__center">
           <input

@@ -12,10 +12,16 @@ class Header extends React.Component {
     };
   }
 
-  updateSearch(event) {
-    this.setState({ search: event.target.value }, () => {
-      this.props.callBack(this.state.search);
-    });
+  handlePress(event) {
+    if (event.charCode === 13) {
+      this.setState({ search: event.target.value }, () => {
+        if (this.state.search === undefined) {
+          this.props.callBack("");
+        } else {
+          this.props.callBack(this.state.search);
+        }
+      });
+    }
   }
 
   render() {
@@ -27,7 +33,7 @@ class Header extends React.Component {
           <input
             type="text"
             placeholder="Enter Name"
-            onChange={this.updateSearch.bind(this)}
+            onKeyPress={this.handlePress.bind(this)}
           />
           <div className="Header__search">
             <SearchIcon />

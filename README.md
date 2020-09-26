@@ -5,7 +5,6 @@ Web application to find news articles. When the user goes to the front page they
 * [Deployment](#deployment)
 * [Built With](#built-with)
 * [Installation](#installation)
-* [Usage](#usage)
 * [Authors](#authors)
 * [License](#license)
 * [Acknowledgements](#acknowledgement)

@@ -32,7 +32,7 @@ class Header extends React.Component {
         <div className="Header__center">
           <input
             type="text"
-            placeholder="Enter Name"
+            placeholder="Search"
             onKeyPress={this.handlePress.bind(this)}
           />
           <div className="Header__search">

@@ -24,10 +24,16 @@ class Header extends React.Component {
     }
   }
 
+  search = (data) => {
+    this.setState({ search: data }, () => {
+      this.props.callBack(this.state.search);
+    });
+  };
+
   render() {
     return (
       <div className="Header">
-          <Sidebar />
+          <Sidebar callBack={this.search}/>
 
         <div className="Header__center">
           <input

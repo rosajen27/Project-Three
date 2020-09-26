@@ -13,7 +13,9 @@ export class Main extends Component {
   }
 
   search = (data) => {
-    this.setState({ search: data });
+    this.setState({ search: data }, () => {
+      this.searchArticles();
+    });
   };
 
   componentDidMount() {
@@ -21,7 +23,19 @@ export class Main extends Component {
   }
 
   getArtciles() {
-    Api.getArticle(" ")
+    Api.getArticle()
+      .then((res) => {
+        this.setState({
+          articles: res.data.articles.map((article) =>
+            this.makeArticle(article)
+          ),
+        });
+      })
+      .catch((err) => console.error(err));
+  }
+
+  searchArticles() {
+    Api.searchArticle(this.state.search)
       .then((res) => {
         this.setState({
           articles: res.data.articles.map((article) =>
@@ -33,10 +47,10 @@ export class Main extends Component {
   }
 
   makeArticle = (article) => {
-    console.log(article)
+    console.log("test");
     return {
       title: article.title,
-      content: article.content
+      content: article.content,
     };
   };
 

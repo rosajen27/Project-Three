@@ -3,14 +3,23 @@ import TextTruncate from "react-text-truncate";
 import { IconButton } from "@material-ui/core";
 import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 import "./Card.css";
+import Api from '../Util/Api'
 
 export class Card extends Component {
+
+  save() {
+
+    let article = {
+      title: this.props.article.title,
+      content: this.props.article.content
+    }
+    Api.saveArticle(article)
+  }
   render() {
-    console.log(this.props);
     return (
       <div>
         <div className="article">
-          <IconButton className="fav">
+          <IconButton onClick={this.save.bind(this)} className="fav">
             <FavoriteBorderIcon />
           </IconButton>
           <div className="article__text">

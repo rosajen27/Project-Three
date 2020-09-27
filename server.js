@@ -6,20 +6,22 @@ const Article = require('./Article')
 //sets up defualt port
 const port = process.env.PORT || 5000;
 
-const connection_URL = 'mongodb+srv://admin:CryuhAngbwyEbs3t@cluster0.mbo1a.mongodb.net/News?retryWrites=true&w=majority';
+const connection_URL = 'mongodb+srv://admin:0smZaYLzIQfjmkPk@cluster0.9gu6q.mongodb.net/news?retryWrites=true&w=majority';
 //Set up mongo connection here
-const MongoClient = require('mongodb').MongoClient;
-const uri = "mongodb+srv://admin:CryuhAngbwyEbs3t@cluster0.mbo1a.mongodb.net/News?retryWrites=true&w=majority";
-const client = new MongoClient(uri, { useNewUrlParser: true });
-client.connect(err => {
-  const collection = client.db("test").collection("devices");
-  // perform actions on the collection object
-  client.close();
+
+
+mongoose.connect(connection_URL, {
+  useCreateIndex: true,
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
 });
+
+app.use(express.json());
 
 //Sets up routes for adding deleteing and retrieving articles
 //Add
 app.post("/api/article", (req, res) => {
+    console.log(req.body)
     Article.create(req.body, (err, data) => {
       if (err) {
         res.status(500).send(err);
@@ -44,7 +46,7 @@ app.post("/api/article", (req, res) => {
       if (err) {
         res.status(500).send(err);
       } else {
-        res.status(200).send("Book Deleted");
+        res.status(200).send("Article Deleted");
       }
     });
   });
@@ -52,3 +54,4 @@ app.post("/api/article", (req, res) => {
 
 //starts server
 app.listen(port, () => console.log(`Listening on localhost:${port}`));
+

@@ -18,6 +18,14 @@ export class Sidebar extends Component {
      this.props.callBack(event.target.innerText)
   }
 
+  home(event) {
+    this.props.home()
+  }
+
+  fav() {
+    this.props.fav();
+  }
+
   render() {
     return (
       <div>
@@ -25,8 +33,8 @@ export class Sidebar extends Component {
           <a href="javascript:void(0)" class="closebtn" onClick={this.closeNav}>
             &times;
           </a>
-          <a href="#" onClick={this.handleClick.bind(this)}>Home</a>
-          <a href="#" onClick={this.handleClick.bind(this)}>Saved/Favorites</a>
+          <a href="#" onClick={this.home.bind(this)}>Home</a>
+          <a href="#" onClick={this.fav.bind(this)}>Saved/Favorites</a>
           <a href="#" onClick={this.handleClick.bind(this)}>Politics</a>
           <a href="#" onClick={this.handleClick.bind(this)}>Science</a>
           <a href="#" onClick={this.handleClick.bind(this)}>Sports</a>

@@ -19,10 +19,10 @@ export class Main extends Component {
   };
 
   componentDidMount() {
-    this.getArtciles();
+    this.getArticiles();
   }
 
-  getArtciles() {
+  getArticiles() {
     Api.getArticle()
       .then((res) => {
         this.setState({
@@ -54,12 +54,27 @@ export class Main extends Component {
     };
   };
 
+  fav() {
+    
+    Api.getSaved().then((res) => {
+      console.log(res.data)
+      this.setState({
+        articles: res.data.map((article) => this.makeArticle(article)),
+      });
+    });
+  }
+
+
   render() {
     console.log(this.state.articles);
     let articles = this.state.articles;
     return (
       <div>
-        <Header callBack={this.search} />
+        <Header
+          callBack={this.search}
+          home={this.getArticiles.bind(this)}
+          fav={this.fav.bind(this)}
+        />
         <div className="articles">
           {articles.map((article) => (
             <Card article={article} />

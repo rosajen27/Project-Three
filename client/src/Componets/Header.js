@@ -30,10 +30,22 @@ class Header extends React.Component {
     });
   };
 
+  home = (data) => {
+    this.setState({ search: data }, () => {
+      this.props.home();
+    });
+  }
+
+  fav = (data) => {
+    this.setState({ search: data }, () => {
+      this.props.fav();
+    });
+  }
+
   render() {
     return (
       <div className="Header">
-          <Sidebar callBack={this.search}/>
+          <Sidebar callBack={this.search} home={this.home} fav={this.fav} />
 
         <div className="Header__center">
           <input

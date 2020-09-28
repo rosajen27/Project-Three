@@ -14,7 +14,7 @@ Web application to find news articles. When the user goes to the front page they
 
 Deployed Link:
 
-(img of app)
+![demo](./client/public/imgs/demo.PNG)
 
 
 ## Built With

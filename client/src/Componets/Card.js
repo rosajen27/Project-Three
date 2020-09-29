@@ -49,6 +49,8 @@ export class Card extends Component {
             />
             <p>{this.props.article.content}</p>
 
+            <a className="url" href={this.props.article.url} target='_blank'>Read more</a>
+
           </div>
         </div>
       </div>

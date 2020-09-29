@@ -47,26 +47,36 @@ export class Main extends Component {
   }
 
   makeArticle = (article) => {
-    console.log("test");
+    console.log("make")
+    return {
+      title: article.title,
+      content: article.description,
+      url: article.url,
+      _id: article._id,
+      saved: false,
+    };
+  };
+
+  saveArticle = (article) => {
+    console.log("save")
     return {
       title: article.title,
       content: article.content,
+      url: article.url,
+      _id: article._id,
+      saved: true,
     };
   };
 
   fav() {
-    
     Api.getSaved().then((res) => {
-      console.log(res.data)
       this.setState({
-        articles: res.data.map((article) => this.makeArticle(article)),
+        articles: res.data.map((article) => this.saveArticle(article)),
       });
     });
   }
 
-
   render() {
-    console.log(this.state.articles);
     let articles = this.state.articles;
     return (
       <div>

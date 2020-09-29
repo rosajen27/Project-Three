@@ -2,26 +2,44 @@ import React, { Component } from "react";
 import TextTruncate from "react-text-truncate";
 import { IconButton } from "@material-ui/core";
 import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
+import DeleteIcon from '@material-ui/icons/Delete';
 import "./Card.css";
-import Api from '../Util/Api'
+import Api from "../Util/Api";
 
 export class Card extends Component {
 
-  save() {
 
+  save() {
     let article = {
       title: this.props.article.title,
-      content: this.props.article.content
+      content: this.props.article.content,
+      url: this.props.article.url,
+    };
+
+    if(this.props.article.saved !== true){
+      Api.saveArticle(article)
+    } else {
+      Api.removeArticle(this.props.article._id);
     }
-    Api.saveArticle(article)
   }
   render() {
+    console.log(this.props)
+    let button;
+    if(this.props.article.saved !== false){
+      button = <DeleteIcon />
+    }
+    else {
+    button = <FavoriteBorderIcon />
+    }
+
     return (
-      <div>
+      
+        <div>
         <div className="article">
           <IconButton onClick={this.save.bind(this)} className="fav">
-            <FavoriteBorderIcon />
+            {button}
           </IconButton>
+
           <div className="article__text">
             <TextTruncate
               textLength="50"
@@ -29,16 +47,12 @@ export class Card extends Component {
               truncateText=".."
               text={this.props.article.title}
             />
+            <p>{this.props.article.content}</p>
 
-            <TextTruncate
-              textLength="20000"
-              element="p"
-              truncateText="....."
-              text={this.props.article.content}
-            />
           </div>
         </div>
       </div>
+  
     );
   }
 }
